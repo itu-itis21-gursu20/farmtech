@@ -1,0 +1,16 @@
+# Bağımlılıklar
+/node_modules
+
+# Ortam değişkenleri
+.env
+
+# Derleme ve log dosyaları
+*.log
+*.csv
+*.txt
+
+# OS veya Editör folderları
+.DS_Store
+Thumbs.db
+.idea
+.vscode
