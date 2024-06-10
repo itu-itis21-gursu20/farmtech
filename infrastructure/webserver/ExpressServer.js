@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 class ExpressServer {
   constructor() {
     this.app = express();
-    this.app.use(bodyParser.json());
+    this.app.use(bodyParser({limit: '50mb'}));
   }
 
   start(port) {

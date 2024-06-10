@@ -12,9 +12,66 @@ const gptRoutes = require('./routes/gptRoutes');
 const dotenv = require("dotenv");
 const connectToDatabase = require('./infrastructure/index');
 const mongoose = require('mongoose');
+// const {OpenAI} = require("openai");
 
-//const authRoutes = require('./routes/authRoutes'); // Kimlik doğrulama rotasını ekleyin
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
+// console.log(process.env.OPENAI_API_KEY);
+
+// const getChatResponse = async () => {
+//   const response = await openai.chat.completions.create({
+//       model: "gpt-4o",
+//       messages: [
+//       {
+//           "role": "system",
+//           "content": "You are a helpful assistant."
+//       },
+//       {
+//         role: "user",
+//         content: JSON.stringify([
+//           { "type": "text", "text": "What is this?" },
+//           { "type": "image_url", "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/3-4-5_triangle.svg/1596px-3-4-5_triangle.svg.png" }
+//         ])
+//       }
+//       ],
+//       //messages: messages,
+//       max_tokens: 300,
+// });
+
+// console.log(response.choices[0].message.content)
+
+// //console.log(JSON.stringify(result, null, 2));
+// }
+
+// getChatResponse();
+
+// const axios = require('axios');
+// const fs = require('fs');
+
+// const imageUrl = 'https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg';
+
+// const getBase64Image = async (url) => {
+//   const response = await axios.get(url, { responseType: 'arraybuffer' });
+//   return Buffer.from(response.data, 'binary').toString('base64');
+// };
+
+// const main = async () => {
+//   try {
+//     const base64 = await getBase64Image(imageUrl);
+//     console.log('Base64 Image:', base64);
+
+//     // Write the base64 string to a file
+//     const filePath = 'base64image.txt';
+//     fs.writeFileSync(filePath, base64);
+//     console.log(`Base64 image saved to ${filePath}`);
+//   } catch (error) {
+//     console.error('Error:', error);
+//   }
+// };
+
+// main();
 
 dotenv.config();
 
@@ -23,7 +80,6 @@ const startServer = async () => {
 
   const server = new ExpressServer();
 
-  //server.app.use('/auth', authRoutes); // Kimlik doğrulama rotası
   server.app.use('/gpt-response', gptRoutes);
   
   server.app.use('/farmers', (req, res, next) => {

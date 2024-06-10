@@ -5,8 +5,8 @@ class GptController {
   
     async getGptResponseHandler(req, res) {
       try {
-        const { text, image_base64 } = req.body; //  image_url
-        const response = await this.getGptResponse.execute({ text, image_base64 });  //  image_url
+        const { text, image } = req.body; 
+        const response = await this.getGptResponse.execute({ text, image });  
         res.status(200).json({ response });
       } catch (err) {
         res.status(500).json({ error: err.message });
